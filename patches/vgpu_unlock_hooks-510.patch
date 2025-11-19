@@ -24,23 +24,6 @@ index 9be623f..ee1c674 100644
  	  (dev_id),                          /* dev_id */         \
  	  0,                                 /* vend_id */        \
  	  (subsys_id),                       /* subsys_id */      \
-@@ -738,6 +738,16 @@ static vgpu_unlock_vgpu_t vgpu_unlock_vgpu[] =
- 	VGPU(0x1e30, 0x143f, "GRID RTX6000-12A"),
- 	VGPU(0x1e30, 0x1440, "GRID RTX6000-24A"),
- 
-+	/* for testing with Turing */
-+	VGPU(0x1e30, 0x13b9, "GeForce RTX 2070-1"),
-+	VGPU(0x1e30, 0x13ba, "GeForce RTX 2070-2"),
-+	VGPU(0x1e30, 0x13bb, "GeForce RTX 2070-3"),
-+	VGPU(0x1e30, 0x13bc, "GeForce RTX 2070-4"),
-+	VGPU(0x1e30, 0x13bd, "GeForce RTX 2070-5"),
-+	VGPU(0x1e30, 0x13be, "GeForce RTX 2070-6"),
-+	VGPU(0x1e30, 0x13cb, "GeForce RTX 2070-7"),
-+	VGPU(0x1e30, 0x13cc, "GeForce RTX 2070-8"),
-+
- 	/* RTX A6000 (Ampere) */
- 	VGPU(0x2230, 0x14fa, "NVIDIA RTXA6000-1B"),
- 	VGPU(0x2230, 0x14fb, "NVIDIA RTXA6000-2B"),
 @@ -769,6 +779,7 @@ static vgpu_unlock_vgpu_t vgpu_unlock_vgpu[] =
  	VGPU(0x2230, 0x1519, "NVIDIA RTXA6000-24C"),
  	VGPU(0x2230, 0x151a, "NVIDIA RTXA6000-48C"),

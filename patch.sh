@@ -649,7 +649,7 @@ if $DO_VGPU; then
     applypatchx ${TARGET} workaround-for-cards-with-inforom-error.patch
     applypatch ${TARGET} vcfg-v16mpp.patch
     applypatch ${TARGET} vcfg-v15vcs.patch
-    applypatch ${TARGET} vcfg-testing.patch
+    #applypatch ${TARGET} vcfg-testing.patch
 
     $REMAP_P2V && remap_P40_to_V100D ${TARGET}/vgpuConfig.xml
 
