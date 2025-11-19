@@ -620,6 +620,8 @@ $TDMABUFEXPORT && {
     cp -p ${TARGET}/kernel-open/nvidia/nv-dmabuf.c ${TARGET}/kernel/nvidia/nv-dmabuf.c
     applypatch ${TARGET} test-dmabuf-export.patch
 }
+$DO_VGPU && applypatchx ${TARGET} vgpu-kvm-support-v6.17-irqbypass.patch
+$DO_VGPU && applypatchx ${TARGET} vgpu-kvm-support-v6.18-namespaced-variables.patch
 $DO_VGPU && applypatchx ${TARGET} vgpu-kvm-optional-vgpu-v2.patch
 
 $DO_MRGD && {
