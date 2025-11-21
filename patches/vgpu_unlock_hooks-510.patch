@@ -2,6 +2,15 @@ diff --git a/kernel/unlock/vgpu_unlock_hooks.c b/kernel/unlock/vgpu_unlock_hooks
 index 9be623f..ee1c674 100644
 --- a/kernel/unlock/vgpu_unlock_hooks.c
 +++ b/kernel/unlock/vgpu_unlock_hooks.c
+@@ -564,7 +564,7 @@ static void vgpu_unlock_hmac_sha256(void* dst,
+  */
+ 
+ /* Debug logs can be enabled here. To enable it, change 0 to 1. */
+-#if 0
++#if defined(DEBUG)
+ 	#define LOG(...) printk(__VA_ARGS__)
+ #else
+ 	#define LOG(...)
 @@ -586,9 +586,9 @@ vgpu_unlock_vgpu_t;
  
  /* Helper macro to initialize the structure above. */
