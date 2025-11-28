@@ -610,8 +610,6 @@ if [ -e patches/vgpud-${VER_BLOB}.diff ]; then
     blobpatch ${TARGET}/nvidia-vgpud patches/vgpud-${VER_BLOB}.diff || exit 1
 fi
 applypatch ${TARGET} setup-vup-hooks.patch
-applypatchx ${TARGET} filter-for-nvrm-logs.patch
-[ -d ${TARGET}/kernel/nvidia-drm ] && applypatchx ${TARGET} test-kms-support.patch
 $NVGPLOPTPATCH && {
     applypatch ${TARGET} switch-option-to-gpl-for-debug.patch
     $FORCEUSENVGPL && sed -e '/^NVIDIA_CFLAGS += .*BIT_MACROS$/aNVIDIA_CFLAGS += -DFORCE_GPL_FOR_EXPERIMENTING' -i ${TARGET}/kernel/nvidia/nvidia.Kbuild
@@ -652,7 +650,6 @@ if $DO_VGPU; then
     applypatch ${TARGET} vcfg-v16mpp.patch
     applypatch ${TARGET} vcfg-v15vcs.patch
     applypatch ${TARGET} vcfg-testing.patch
-    applypatchx ${TARGET} verbose-firmware-load.patch
 
     $REMAP_P2V && remap_P40_to_V100D ${TARGET}/vgpuConfig.xml
 
