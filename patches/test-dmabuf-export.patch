@@ -1,13 +1,39 @@
+diff --git a/kernel/common/inc/nv-linux.h b/kernel/common/inc/nv-linux.h
+index 0b5b4bb80507..782197ebe760 100644
+--- a/kernel/common/inc/nv-linux.h
++++ b/kernel/common/inc/nv-linux.h
+@@ -949,6 +949,17 @@ typedef struct nvidia_pte_s {
+     unsigned long   virt_addr;
+ } nvidia_pte_t;
+ 
++#if defined(CONFIG_DMA_SHARED_BUFFER)
++/* Standard dma_buf-related information. */
++struct nv_dma_buf
++{
++    struct dma_buf *dma_buf;
++    struct dma_buf_attachment *dma_attach;
++    struct sg_table *sgt;
++    enum dma_data_direction direction;
++};
++#endif // CONFIG_DMA_SHARED_BUFFER
++
+ typedef struct nv_alloc_s {
+     struct nv_alloc_s *next;
+     struct device     *dev;
 diff --git a/kernel/nvidia/nv-dmabuf.c b/kernel/nvidia/nv-dmabuf.c
 index f060839..2146f53 100644
 --- a/kernel/nvidia/nv-dmabuf.c
 +++ b/kernel/nvidia/nv-dmabuf.c
-@@ -23,6 +23,10 @@
+@@ -23,6 +23,14 @@
  #include <linux/dma-buf.h>
  #include "nv-dmabuf.h"
  
 +#if defined(MODULE_IMPORT_NS)
++#if defined(NV_MODULE_IMPORT_NS_TAKES_CONSTANT)
 +MODULE_IMPORT_NS(DMA_BUF);
++#else
++MODULE_IMPORT_NS("DMA_BUF");
++#endif
 +#endif
 +
  #if defined(CONFIG_DMA_SHARED_BUFFER)
