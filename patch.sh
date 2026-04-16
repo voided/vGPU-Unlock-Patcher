@@ -670,6 +670,7 @@ if $DO_VGPU; then
     vcfgclone ${TARGET}/vgpuConfig.xml 0x1B38 0x0 0x1B00 0x0000		# TITAN X
     vcfgclone ${TARGET}/vgpuConfig.xml 0x1B38 0x0 0x1B06 0x0000		# GTX 1080 Ti
     vcfgclone ${TARGET}/vgpuConfig.xml 0x1B38 0x0 0x1B81 0x0000		# GTX 1070
+    vcfgclone ${TARGET}/vgpuConfig.xml 0x1B38 0x0 0x1B80 0x0000		# GTX 1080
     vcfgclone ${TARGET}/vgpuConfig.xml 0x1B38 0x0 0x1D01 0x0000		# GTX 1030 -> Tesla P40
     vcfgclone ${TARGET}/vgpuConfig.xml 0x13BD 0x1160 0x17FD 0x0000	# Tesla M40 -> Tesla M10
     vcfgclone ${TARGET}/vgpuConfig.xml 0x13BD 0x1160 0x13C0 0x0000	# GTX 980 -> Tesla M10
